@@ -21,5 +21,7 @@
   "continue": "Continue",
   "phone_number": "Phone number",
   "password": "Password",
-  "submit": "Submit"
+  "submit": "Submit",
+  "password_not_number": "The password is not a number.",
+  "number_not_standard": "The phone number is not standard."
 }

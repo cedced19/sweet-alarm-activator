@@ -14,5 +14,12 @@
   "settings": "Options",
   "request_permission": "Autoriser l'application",
   "enable_warning": "Activer le système d'alerte",
-  "disable_warning": "Desactiver le système d'alerte"
-  }
+  "disable_warning": "Desactiver le système d'alerte",
+  "add_alarm": "Ajouter une alarme",
+  "custom": "Alarme personnalisé",
+  "alarm_system": "Veuillez choisir un système d'alarme:",
+  "continue": "Continuer",
+  "phone_number": "Numéro de téléphone",
+  "password": "Mot de passe",
+  "submit": "Soumettre"
+}

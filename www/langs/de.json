@@ -14,5 +14,12 @@
   "settings": "Die Parameter",
   "request_permission": "Erlauben die Anwendung",
   "enable_warning": "Aktivieren Sie das Warnsystem",
-  "disable_warning": "Deaktivieren Sie das Warnsystem"
+  "disable_warning": "Deaktivieren Sie das Warnsystem",
+  "add_alarm": "Hinzufügen ein Alarm",
+  "custom": "Personalisiert Alarm",
+  "alarm_system": "Bitte wählen Sie eine Alarmanlage:",
+  "continue": "Fortsetzen",
+  "phone_number": "Telefonnummer",
+  "password": "Passwort",
+  "submit": "Unterwerfen"
 }

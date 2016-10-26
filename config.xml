@@ -2,7 +2,7 @@
 <widget id="io.github.cedced19.sweetalarmactivator" version="0.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Sweet Alarm Activator</name>
     <description>
-        An application to enable or disable your alarm system at home.
+        An application to enable or disable your alarm system.
     </description>
     <author email="cedced19@gmail.com" href="https://cedced19.github.io">
         Cédric Jung

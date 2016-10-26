@@ -14,5 +14,12 @@
   "settings": "Settings",
   "request_permission": "Allow the application",
   "enable_warning": "Enable the system",
-  "disable_warning": "Disable the system"
+  "disable_warning": "Disable the system",
+  "add_alarm": "Add an alarm",
+  "custom": "Customized alarm",
+  "alarm_system": "Please choose an alarm system:",
+  "continue": "Continue",
+  "phone_number": "Phone number",
+  "password": "Password",
+  "submit": "Submit"
 }

@@ -1,4 +1,4 @@
-<number-list class="app-page">
+<add-alarm class="app-page">
     <header class="header-bar">
         <div class="center">
             <button class="btn icon icon-arrow-back pull-left" data-navigation="$previous-page"></button>
@@ -7,17 +7,26 @@
     </header>
     <div class="content">
         <div class="padded-full">
-            <h1 data-i18n="text: contacts_list"></h1>
-
-            <div id="request-contacts-permission" style="display: none;">
-              <p data-i18n="text: request_contacts_permission"></p>
-              <button id="request-contacts-permission-btn" class="btn primary" data-i18n="text: request_permission"></button>
-            </div>
-
-            <button class="btn" id="add-contact-btn" data-i18n="text: add_contact"></button>
+		<div id="chose-system">
+			<h1 data-i18n="text: add_alarm"></h1>
+			<p data-i18n="text: alarm_system"></p>
+		    	<select class="padded-bottom" id="system">
+		        	<option value="iph">iPH</option>
+				<option value="custom" data-i18n="text: custom"></option>
+		    	</select>
+		    	<button class="btn fit-parent primary" data-i18n="text: continue" id="continue-btn"></button>
+		</div>
+          	<div id="fill-informations" style="display: none">
+			<div class="input-wrapper">
+				<input class="with-label" type="tel" id="number" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$">
+				<label class="floating-label" for="number" data-i18n="text: phone_number"></label>
+			</div>
+			<div class="input-wrapper padded-bottom">
+				<input class="with-label" type="password" id="password">
+				<label class="floating-label" for="password" data-i18n="text: password"></label>
+			</div>
+			<button class="btn fit-parent primary" data-i18n="text: submit" id="submit-btn"></button>
+          	</div>
         </div>
-        <ul class="list" id="contacts-list">
-          <li class="divider" data-i18n="text: selected_contacts"></li>
-        </ul>
     </div>
-</number-list>
+</add-alarm>

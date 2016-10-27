@@ -173,6 +173,45 @@ phonon.navigator().on({ page: 'toggle-alarm', content: 'toggle-alarm.html', prev
     activity.onCreate(function () {
         document.getElementById('alarm-name').innerHTML = selectedAlarm.name;
         document.getElementById('alarm-system').innerHTML = selectedAlarm.system;
+
+        var alertMessage = function (sentence, type) {
+          phonon.i18n().get([sentence, type, 'ok'], function(values) {
+            phonon.alert(values[sentence], values[type], false, values['ok']);
+          });
+        };
+
+        var getPermission = function(cb) {
+          cordova.plugins.permissions.hasPermission(cordova.plugins.permissions['SEND_SMS'], function (status) {
+            if(!status.hasPermission) {
+                cordova.plugins.permissions.requestPermission(cordova.plugins.permissions['SEND_SMS'], function (status) {
+                    if(!status.hasPermission) return alertMessage('not_allowed_to_send_sms', 'error');
+                    cb();
+                }, function() {
+                    alertMessage('not_allowed_to_send_sms', 'error')
+                });
+            } else {
+              cb();
+            }
+          }, null);
+        };
+
+        var sendSMS = function (text, cb) {
+          getPermission(function() {
+            SMS.sendSMS(selectedAlarm.number, text, cb, cb);
+          });
+        }
+
+        document.getElementById('lock-btn').on('click', function () {
+          sendSMS(selectedAlarm.enable, function () {
+            alertMessage('alarm_enabled', 'information');
+          });
+        });
+
+        document.getElementById('unlock-btn').on('click', function () {
+          sendSMS(selectedAlarm.disable, function () {
+            alertMessage('alarm_disabled', 'information');
+          });
+        });
     });
 });
 

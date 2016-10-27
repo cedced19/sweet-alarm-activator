@@ -31,5 +31,8 @@
   "toggle_alarm": "Toggle the alarm",
   "actions": "Actions",
   "lock": "Lock",
-  "unlock": "Unlock"
+  "unlock": "Unlock",
+  "alarm_enabled": "The alarm has just been enabled.",
+  "alarm_disabled": "The alarm has just been disabled.",
+  "not_allowed_to_send_sms": "The application is not allowed to send SMS."
 }

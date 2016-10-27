@@ -17,7 +17,7 @@
   "disable_warning": "Desactiver le système d'alerte",
   "add_alarm": "Ajouter une alarme",
   "custom": "Alarme personnalisé",
-  "alarm_system": "Veuillez choisir un système d'alarme:",
+  "chose_alarm_system": "Veuillez choisir un système d'alarme:",
   "continue": "Continuer",
   "phone_number": "Numéro de téléphone",
   "password": "Mot de passe",
@@ -26,5 +26,10 @@
   "number_not_standard": "Le numéro de téléphone n'est pas conforme",
   "available_alarm": "Alarme disponible",
   "alarm_name": "Nom de l'alarme",
-  "no_alarm": "Vous n'avez pas encore d'alarme."
+  "alarm_system": "Système de l'alarme",
+  "no_alarm": "Vous n'avez pas encore d'alarme.",
+  "toggle_alarm": "Contrôler l'alarme",
+  "actions": "Commandes",
+  "lock": "Activer",
+  "unlock": "Désactiver"
 }

@@ -17,7 +17,7 @@
   "disable_warning": "Disable the system",
   "add_alarm": "Add an alarm",
   "custom": "Customized alarm",
-  "alarm_system": "Please choose an alarm system:",
+  "chose_alarm_system": "Please choose an alarm system:",
   "continue": "Continue",
   "phone_number": "Phone number",
   "password": "Password",
@@ -26,5 +26,10 @@
   "number_not_standard": "The phone number is not standard.",
   "available_alarm": "Available alarm",
   "alarm_name": "Alarm name",
-  "no_alarm": "You have not yet alarm."
+  "alarm_name": "Alarm system",
+  "no_alarm": "You have not yet alarm.",
+  "toggle_alarm": "Toggle the alarm",
+  "actions": "Actions",
+  "lock": "Lock",
+  "unlock": "Unlock"
 }

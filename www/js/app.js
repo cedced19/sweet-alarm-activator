@@ -3,7 +3,8 @@ phonon.options({
         defaultPage: 'home',
         animatePages: true,
         templateRootDirectory: 'views/',
-        enableBrowserBackButton: true
+        enableBrowserBackButton: true,
+        useHash: true
     },
     i18n: {
         directory: 'langs/',
@@ -13,6 +14,8 @@ phonon.options({
 
 var language = localStorage.getItem('language') || (window.navigator.userLanguage || window.navigator.language).split('-')[0];
 phonon.updateLocale(language);
+
+var selectedAlarm = {};
 
 phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, readyDelay: 0}, function(activity) {
 
@@ -35,7 +38,8 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
             var li = document.createElement('li');
             li.appendChild(document.createTextNode(alarm.name));
             li.on('click', function () {
-              //phonon.navigator().changePage('toggle-alarm');
+              selectedAlarm = alarm;
+              phonon.navigator().changePage('toggle-alarm');
             });
             li.className += 'padded-list';
             ul.appendChild(li);
@@ -161,6 +165,14 @@ phonon.navigator().on({ page: 'language', content: 'language.html', preventClose
                 break;
             }
         }
+    });
+});
+
+phonon.navigator().on({ page: 'toggle-alarm', content: 'toggle-alarm.html', preventClose: false, readyDelay: 0 }, function (activity) {
+
+    activity.onCreate(function () {
+        document.getElementById('alarm-name').innerHTML = selectedAlarm.name;
+        document.getElementById('alarm-system').innerHTML = selectedAlarm.system;
     });
 });
 

@@ -17,7 +17,7 @@
   "disable_warning": "Deaktivieren Sie das Warnsystem",
   "add_alarm": "Hinzufügen ein Alarm",
   "custom": "Personalisiert Alarm",
-  "alarm_system": "Bitte wählen Sie eine Alarmanlage:",
+  "chose_alarm_system": "Bitte wählen Sie eine Alarmanlage:",
   "continue": "Fortsetzen",
   "phone_number": "Telefonnummer",
   "password": "Passwort",
@@ -26,5 +26,8 @@
   "number_not_standard": "Die Telefonnummer ist nicht konform.",
   "available_alarm": "Verfügbaren Alarmen",
   "alarm_name": "Name des Alarms",
-  "no_alarm": "Jetzt, hast du kein Alarm."
+  "alarm_system": "Alarmanlage",
+  "no_alarm": "Jetzt, hast du kein Alarm.",
+  "toggle_alarm": "Steuern der Alarm",
+  "actions": "Aktions"
 }

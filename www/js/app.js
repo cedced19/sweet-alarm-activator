@@ -36,10 +36,12 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     	'6'
     ];
 
-    activity.onCreate(function () {
+  activity.onCreate(function () {
     	var system = document.getElementById('system');
     	var phone = document.getElementById('number');
     	var password = document.getElementById('password');
+    	var name = document.getElementById('name');
+    	var passwordDiv = document.getElementById('password-div');
     	var systemDiv = document.getElementById('chose-system');
     	var informationsDiv = document.getElementById('fill-informations');
     	var continueBtn = document.getElementById('continue-btn');
@@ -47,49 +49,60 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     	var alarm = {};
     	var alarms = JSON.parse(localStorage.getItem('alarms')) || [];
 
-	continueBtn.on('click', function () {
-		alarm.system = system.value;
-		informationsDiv.style.display = 'block';
-		systemDiv.style.display = 'none';
-	});
+    	continueBtn.on('click', function () {
+    		alarm.system = system.value;
+    		informationsDiv.style.display = 'block';
+    		systemDiv.style.display = 'none';
 
-	submitBtn.on('click', function () {
-		alarm.number = number.value;
-		alarm.password = password.value;
+        if (alarm.system === 'custom') {
+          passwordDiv.style.display = 'none';
+        }
+    	});
 
-		if (isNaN(alarm.password) && alarm.password.length < 7 && alarm.password.length > 13) {
-			return phonon.i18n().get(['number_not_standard', 'error', 'ok'], function(values) {
-				phonon.alert(values['number_not_standard'], values['error'], false, values['ok']);
-			});
-		}
+    	submitBtn.on('click', function () {
+    		alarm.number = number.value;
+    		alarm.password = password.value;
+      	alarm.name = name.value;
 
-		if (alarm.system === 'iph') {
-			if (isNaN(alarm.password)) {
-				return phonon.i18n().get(['password_not_number', 'error', 'ok'], function(values) {
-					phonon.alert(values['password_not_number'], values['error'], false, values['ok']);
-				});
-			}
+        if (alarm.name === '') {
+          alarm.name = alarm.length + 1;
+        }
 
-			alarm.password = alarm.password.split('').map(function(digit) {
-				return iphConvertion[digit];
-			}).join('');
+    		if (isNaN(alarm.number) && alarm.number.length < 7 && alarm.number.length > 13) {
+    			return phonon.i18n().get(['number_not_standard', 'error', 'ok'], function(values) {
+    				phonon.alert(values['number_not_standard'], values['error'], false, values['ok']);
+    			});
+    		}
 
-			alarm.enable = alarm.password + 'N>';
-			alarm.disable = alarm.password + 'N=';
+    		if (alarm.system === 'iph') {
+    			if (isNaN(alarm.password)) {
+    				return phonon.i18n().get(['password_not_number', 'error', 'ok'], function(values) {
+    					phonon.alert(values['password_not_number'], values['error'], false, values['ok']);
+    				});
+    			}
 
-			delete alarm.password;
-		}
+    			alarm.password = alarm.password.split('').map(function(digit) {
+    				return iphConvertion[digit];
+    			}).join('');
 
-		alarms.push(alarm);
+    			alarm.enable = alarm.password + 'N>';
+    			alarm.disable = alarm.password + 'N=';
 
-		localStorage.setItem('alarms', JSON.stringify(alarms));
-		alarm = {};
-		number.value = '';
-		password.value = '';
-		informationsDiv.style.display = 'none';
-		systemDiv.style.display = 'block';
-		phonon.navigator().changePage('home');
-	});
+    			delete alarm.password;
+    		}
+
+    		alarms.push(alarm);
+
+    		localStorage.setItem('alarms', JSON.stringify(alarms));
+    		alarm = {};
+    		number.value = '';
+    		name.value = '';
+    		password.value = '';
+    		informationsDiv.style.display = 'none';
+    		systemDiv.style.display = 'block';
+        passwordDiv.style.display = 'block';
+    		phonon.navigator().changePage('home');
+    	});
     });
 });
 

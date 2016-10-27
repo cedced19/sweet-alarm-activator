@@ -7,25 +7,29 @@
     </header>
     <div class="content">
         <div class="padded-full">
-		<div id="chose-system">
-			<h1 data-i18n="text: add_alarm"></h1>
-			<p data-i18n="text: alarm_system"></p>
-		    	<select class="padded-bottom" id="system">
-		        	<option value="iph">iPH</option>
-				<option value="custom" data-i18n="text: custom"></option>
-		    	</select>
-		    	<button class="btn fit-parent primary" data-i18n="text: continue" id="continue-btn"></button>
-		</div>
+            <h1 data-i18n="text: add_alarm"></h1>
+        		<div id="chose-system">
+        			     <p data-i18n="text: alarm_system"></p>
+        		       <select class="padded-bottom" id="system">
+                       <option value="iph">iPH</option>
+        		           <option value="custom" data-i18n="text: custom"></option>
+        		       </select>
+        		    	 <button class="btn fit-parent primary" data-i18n="text: continue" id="continue-btn"></button>
+        		</div>
           	<div id="fill-informations" style="display: none">
-			<div class="input-wrapper">
-				<input class="with-label" type="tel" id="number" pattern="^\d{7,13}$">
-				<label class="floating-label" for="number" data-i18n="text: phone_number"></label>
-			</div>
-			<div class="input-wrapper padded-bottom">
-				<input class="with-label" type="password" id="password">
-				<label class="floating-label" for="password" data-i18n="text: password"></label>
-			</div>
-			<button class="btn fit-parent primary" data-i18n="text: submit" id="submit-btn"></button>
+                <div class="input-wrapper">
+                  <input class="with-label" type="text" id="name">
+                  <label class="floating-label" for="name" data-i18n="text: alarm_name"></label>
+                </div>
+          			<div class="input-wrapper">
+          				<input class="with-label" type="tel" id="number" pattern="^\d{7,13}$">
+          				<label class="floating-label" for="number" data-i18n="text: phone_number"></label>
+          			</div>
+          			<div class="input-wrapper padded-bottom" id="password-div">
+          				<input class="with-label" type="password" id="password">
+          				<label class="floating-label" for="password" data-i18n="text: password"></label>
+          			</div>
+          			<button class="btn fit-parent primary" data-i18n="text: submit" id="submit-btn"></button>
           	</div>
         </div>
     </div>

@@ -25,5 +25,6 @@
   "password_not_number": "Das Passwort ist nicht eine Nummer.",
   "number_not_standard": "Die Telefonnummer ist nicht konform.",
   "available_alarm": "Verfügbaren Alarmen",
-  "alarm_name": "Name des Alarms"
+  "alarm_name": "Name des Alarms",
+  "no_alarm": "Jetzt, hast du kein Alarm."
 }

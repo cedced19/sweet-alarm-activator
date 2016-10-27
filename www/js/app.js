@@ -16,7 +16,34 @@ phonon.updateLocale(language);
 
 phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, readyDelay: 0}, function(activity) {
 
-    activity.onCreate(function () {
+    activity.onReady(function () {
+      var ul = document.getElementById('list');
+      var alarms = JSON.parse(localStorage.getItem('alarms'));
+
+      while (ul.firstChild) {
+          ul.removeChild(ul.firstChild);
+      }
+
+      if (Array.isArray(alarms)) {
+        document.getElementById('no-alarm').style.display = 'none';
+        phonon.i18n().get('available_alarm', function (value) {
+          var title = document.createElement('li');
+          title.appendChild(document.createTextNode(value));
+          title.className += 'divider';
+          ul.appendChild(title);
+          alarms.forEach(function (alarm) {
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(alarm.name));
+            li.on('click', function () {
+              //phonon.navigator().changePage('toggle-alarm');
+            });
+            li.className += 'padded-list';
+            ul.appendChild(li);
+          });
+        });
+      } else {
+        document.getElementById('no-alarm').style.display = 'block';
+      }
 
     });
 });
@@ -56,6 +83,8 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
 
         if (alarm.system === 'custom') {
           passwordDiv.style.display = 'none';
+        } else {
+          passwordDiv.style.display = 'block';
         }
     	});
 
@@ -100,7 +129,6 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     		password.value = '';
     		informationsDiv.style.display = 'none';
     		systemDiv.style.display = 'block';
-        passwordDiv.style.display = 'block';
     		phonon.navigator().changePage('home');
     	});
     });

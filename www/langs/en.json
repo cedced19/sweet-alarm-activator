@@ -25,5 +25,6 @@
   "password_not_number": "The password is not a number.",
   "number_not_standard": "The phone number is not standard.",
   "available_alarm": "Available alarm",
-  "alarm_name": "Alarm name"
+  "alarm_name": "Alarm name",
+  "no_alarm": "You have not yet alarm."
 }

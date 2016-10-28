@@ -231,11 +231,12 @@ phonon.navigator().on({
     preventClose: false,
     readyDelay: 0
 }, function(activity) {
-
-    activity.onCreate(function() {
+    activity.onReady(function() {
         document.getElementById('alarm-name').innerHTML = selectedAlarm.name;
         document.getElementById('alarm-system').innerHTML = selectedAlarm.system;
+    });
 
+    activity.onCreate(function() {
         var alertMessage = function(sentence, type) {
             phonon.i18n().get([sentence, type, 'ok'], function(values) {
                 phonon.alert(values[sentence], values[type], false, values['ok']);

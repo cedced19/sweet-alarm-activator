@@ -40,9 +40,14 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
             // Delete alarm button
             var deleteBtn = document.createElement('a');
             deleteBtn.on('click', function () {
-              alarms.splice(index, 1);
-              localStorage.setItem('alarms', JSON.stringify(alarms));
-              ul.removeChild(li);
+              phonon.i18n().get(['question_sure', 'warning', 'ok', 'cancel'], function(values) {
+                 var confirm = phonon.confirm(values['question_sure'], values['warning'], true, values['ok'], values['cancel']);
+                 confirm.on('confirm', function() {
+                   alarms.splice(index, 1);
+                   localStorage.setItem('alarms', JSON.stringify(alarms));
+                   ul.removeChild(li);
+                 });
+               });
             });
             deleteBtn.className += 'pull-right icon icon-close';
             li.appendChild(deleteBtn);

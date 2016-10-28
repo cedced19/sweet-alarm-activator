@@ -88,22 +88,28 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     ];
 
   activity.onCreate(function () {
+      // Inputs
     	var system = document.getElementById('system');
     	var phone = document.getElementById('number');
     	var password = document.getElementById('password');
     	var enable = document.getElementById('enable');
     	var disable = document.getElementById('disable');
     	var name = document.getElementById('name');
+
+      // Divs
     	var passwordDiv = document.getElementById('password-div');
     	var messageDiv = document.getElementById('messages-div');
     	var systemDiv = document.getElementById('chose-system');
     	var informationsDiv = document.getElementById('fill-informations');
+
+      // Buttons
     	var continueBtn = document.getElementById('continue-btn');
     	var submitBtn = document.getElementById('submit-btn');
     	var alarm = {};
 
     	continueBtn.on('click', function () {
     		alarm.system = system.value;
+
     		informationsDiv.style.display = 'block';
     		systemDiv.style.display = 'none';
 
@@ -114,7 +120,11 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
           passwordDiv.style.display = 'block';
           messageDiv.style.display = 'none';
         }
-    	});
+
+        number.value = '';
+        name.value = '';
+        password.value = '';
+      });
 
     	submitBtn.on('click', function () {
     		alarm.number = number.value;
@@ -160,13 +170,13 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
 
         // Reset
     		alarm = {};
-    		number.value = '';
-    		name.value = '';
-    		password.value = '';
-    		informationsDiv.style.display = 'none';
-    		systemDiv.style.display = 'block';
     		phonon.navigator().changePage('home');
     	});
+    });
+
+    activity.onReady(function () {
+      document.getElementById('chose-system').style.display = 'block';
+    	document.getElementById('fill-informations').style.display = 'none';
     });
 });
 

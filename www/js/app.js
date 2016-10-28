@@ -34,14 +34,29 @@ phonon.navigator().on({page: 'home', content: 'home.html', preventClose: false, 
           title.appendChild(document.createTextNode(value));
           title.className += 'divider';
           ul.appendChild(title);
-          alarms.forEach(function (alarm) {
+          alarms.forEach(function (alarm, index) {
             var li = document.createElement('li');
-            li.appendChild(document.createTextNode(alarm.name));
-            li.on('click', function () {
+
+            // Delete alarm button
+            var deleteBtn = document.createElement('a');
+            deleteBtn.on('click', function () {
+              alarms.splice(index, 1);
+              localStorage.setItem('alarms', JSON.stringify(alarms));
+              ul.removeChild(li);
+            });
+            deleteBtn.className += 'pull-right icon icon-close';
+            li.appendChild(deleteBtn);
+
+            // Select alarm button
+            var selectBtn = document.createElement('a');
+            selectBtn.appendChild(document.createTextNode(alarm.name));
+            selectBtn.on('click', function () {
               selectedAlarm = alarm;
               phonon.navigator().changePage('toggle-alarm');
             });
-            li.className += 'padded-list';
+            selectBtn.className += 'padded-list';
+            li.appendChild(selectBtn);
+
             ul.appendChild(li);
           });
         });

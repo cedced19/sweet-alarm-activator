@@ -91,14 +91,16 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     	var system = document.getElementById('system');
     	var phone = document.getElementById('number');
     	var password = document.getElementById('password');
+    	var enable = document.getElementById('enable');
+    	var disable = document.getElementById('disable');
     	var name = document.getElementById('name');
     	var passwordDiv = document.getElementById('password-div');
+    	var messageDiv = document.getElementById('messages-div');
     	var systemDiv = document.getElementById('chose-system');
     	var informationsDiv = document.getElementById('fill-informations');
     	var continueBtn = document.getElementById('continue-btn');
     	var submitBtn = document.getElementById('submit-btn');
     	var alarm = {};
-    	var alarms = JSON.parse(localStorage.getItem('alarms')) || [];
 
     	continueBtn.on('click', function () {
     		alarm.system = system.value;
@@ -107,8 +109,10 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
 
         if (alarm.system === 'custom') {
           passwordDiv.style.display = 'none';
+          messageDiv.style.display = 'block';
         } else {
           passwordDiv.style.display = 'block';
+          messageDiv.style.display = 'none';
         }
     	});
 
@@ -144,9 +148,17 @@ phonon.navigator().on({page: 'add-alarm', content: 'add-alarm.html', preventClos
     			delete alarm.password;
     		}
 
+        if (alarm.system === 'custom') {
+          alarm.enable = enable.value;
+    			alarm.disable = disable.value;
+        }
+
+        var alarms = JSON.parse(localStorage.getItem('alarms')) || [];
     		alarms.push(alarm);
 
     		localStorage.setItem('alarms', JSON.stringify(alarms));
+
+        // Reset
     		alarm = {};
     		number.value = '';
     		name.value = '';

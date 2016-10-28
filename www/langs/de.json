@@ -34,5 +34,7 @@
   "unlock": "Deaktivieren",
   "alarm_enabled": "Der Alarm wurde aktiviert.",
   "alarm_disabled": "The alarm has just been disabled.",
-  "not_allowed_to_send_sms": "The application is not allowed to send SMS."
+  "not_allowed_to_send_sms": "The application is not allowed to send SMS.",
+  "enable_message": "Aktivierungsmeldung",
+  "disable_message": "Deaktivierungsmeldung"
 }

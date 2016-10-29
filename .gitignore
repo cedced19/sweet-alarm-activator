@@ -5,5 +5,5 @@ plugins/cordova-plugin-device/*
 plugins/cordova-plugin-android-permissions/*
 plugins/cordova-plugin-statusbar/*
 node_modules/
-sweet-alert-activator.keystore
+sweet-alarm-activator.keystore
 build.json

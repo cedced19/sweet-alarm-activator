@@ -26,7 +26,7 @@
   "number_not_standard": "The phone number is not standard.",
   "available_alarm": "Available alarms",
   "alarm_name": "Alarm name",
-  "alarm_name": "Alarm system",
+  "alarm_system": "Alarm system",
   "no_alarm": "You have not yet alarm.",
   "toggle_alarm": "Toggle the alarm",
   "actions": "Actions",
